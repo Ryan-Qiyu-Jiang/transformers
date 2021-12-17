@@ -130,6 +130,7 @@ def do_nms(boxes, scores, image_shape, score_thresh, nms_thresh, mind, maxd):
     # Apply NMS
     keep = nms(max_boxes, max_scores, nms_thresh)
     keep = keep[:maxd]
+    # import pdb;pdb.set_trace()
     if keep.shape[-1] >= mind and keep.shape[-1] <= maxd:
         max_boxes, max_scores = max_boxes[keep], max_scores[keep]
         classes = max_classes[keep]
